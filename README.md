@@ -1,1 +1,128 @@
 # iOS-Security-and-Privacy-Guide
+
+This is a comprehensive resource for anyone who is looking to increase the security and privacy of their iOS device.
+I understand that a lot of the suggestions that I add will be unrealistic for most people which is why I it is
+up to the individual to balance security and convenience and adopt any suggestions they choose to do.
+- **Practices to follow**
+	- Keep your devices up to date to ensure you recieve the latest security patches.
+	- Remove any apps you do not use anymore.
+	- Limit the amount of apps you download and use their websites if possible.
+- **Encryption**
+	-  Todo
+- **Cellular Tracking**
+	- Todo
+- **Settings**
+	- AppleID -> iCloud
+		- It's important to note that almost all of iCloud's contents are not end-to-end encrypted with few exceptions. You can see what is encrypted and what is not [here](https://support.apple.com/en-us/HT202303). I suggest you sync as little as possible if that information is not end-to-end encrypted. It's important to note that if you disable iCloud backup, iMessages become end-to-end encrypted without Apple having the key to access it.
+		- I recommend you disable most of the apps using the "iCloud Drive" feature unless you trust them or need the syncing ability.
+		- Disable the 'Look Me Up' feature.
+	- AppleID -> Password & Security
+		- Make sure you have two-factor authentication on for your AppleID.
+		- Enabling the Recovery Key option increases the security of your account by reducing the ways your account password can be reset.
+	- AppleID -> Find My
+		- Find My is a bit of a tradeoff. It offers security if your device is ever lost or stolen but compromises privacy as it allows it to be located by Apple. You have to decide what is worth it for you.
+		- The Find My network feature allows your iPhone to be located even if you do not have a cellular connection by sharing the encrypted location of your phone to other devices nearby using bluetooth. Apple states that these connections are end-to-end encrypted but if you want to reduce your attack service, I recommend disabling this feature.
+		- WiFI & Bluetooth
+			- [National Security Agency](https://media.defense.gov/2020/Aug/04/2002469874/-1/-1/0/CSI_LIMITING_LOCATION_DATA_EXPOSURE_FINAL.PDF):
+				- > Disable radios when they are not actively in use: disable BT and turn
+					> off Wi-Fi if these capabilities are not needed.
+		- Notifications
+			- Disable notifications for any apps you do not trust or use to prevent background usage.
+		- General
+			- Airdrop:
+				- Completely disable AirDrop when not in use. Having it enabled can [increase your attack service.](https://www.techrepublic.com/article/apple-airdrop-users-reportedly-vulnerable-to-security-flaw/)
+			- Automatically AirPlay to TVs:
+				- Disable if this is not used by you
+			- Transfer to HomePod
+				- Disable if this is not used by you
+			- Handoff
+				- I recommend this be disabled due to the [privacy risk it poses while in public](https://arxiv.org/pdf/1904.10600.pdf)
+			- Background App Refresh
+				- Many apps do not need to perform tasks while in the background to operate correctly. Any apps deliverying notifications using a server such as Twitter, Snapchat, Facebook will deliver notifications just fine with this disabled. I recommend you disable this for any apps you do not necessarily need it for. ![enter image description here](https://user-images.githubusercontent.com/79298192/124216686-cc3e1d00-dac4-11eb-8ef9-95b900f50abb.png)
+				- This switch is also very important because [Apple tells us](https://developer.apple.com/videos/play/wwdc2020/10063/) that your background app refresh choices significantly impacts the decision of the system to allow apps to perform other background tasks for that app that may not even fall under background app refresh tasks.
+			- Dictation:
+				- I recommend you disable as it requires you to send Apple your "voice input, contacts, and location to Apple when necessary for processing your requests."
+		- Siri & Search
+			- I recommend you disable as it requires you to send Apple your "voice input, contacts, and location to Apple when necessary for processing your requests."
+			- Disable all of the Siri Suggestion options:
+				- Insert image of the 4 here ****
+				- Insert image of privacy of siri suggestions here *****
+		- Face ID & Passcode
+			- I recommend a passcode with a minimum of six digits, though a more complex code would be better. Using FaceID or TouchID could allow you to create a more complex one while still having a quick unlock.
+			- If you use Face ID, make sure "Require Attention for Face ID" is enabled so your phone can't be unlocked without you knowing
+			- For the "Allow access while locked" section, I recommend disabling them all.
+			- Enable 'Erase Data'
+				- This will wipe your phone after more than 10 failed passcode attempts. After being rate limited, it would take about [3 hours](https://www.businessinsider.com/iphone-security-failed-passcode-attempts-2018-6) to enter 10 passcode attempts. I recommend you make frequent backups if you enable this.
+	- Privacy
+		- Location Services:
+			- Disable location for any apps you do not use!
+			- If an app you use does require location, enable 'While Using the App' so it's not using it in the background.
+			- You can disable the 'Precise Location' for that app so it's only able to get your approximate location for better privacy.
+			- System Services:
+				- You can see the purpose for most of these [here](https://support.apple.com/en-us/HT207056).
+				- Most of these can be disabled.
+					- For example: Cellular networks works just fine with 'Cell Network Search' and 'Networking and Wireless' disabled.
+				- If you use your phone/watch as a fitness tracker, 'Motion Calibration & Distance' might be helpful to leave enabled to accurately track your steps/activity.
+				- 'Emergency Calls & SOS' is an option where I recommend it stay enabled as the location will only be sent during an emergency call and could help emergency services get to you as fast as possible.
+				> Emergency Calls & SOS: When you make an emergency call, in addition to location already provided to emergency services, your iPhone or Apple Watch will make supplementary data available through the Enhanced Emergency Data service. This may include street address information if your current location is near the Home or Work address in your personal contact card (My Card). Triggering Emergency SOS will also send location to your emergency contacts at the end of the call.
+			- Tracking:
+				- Disable the option 'Allow Apps to Request to Track'
+					- This stops apps from having access to your devices advertising identifier.
+			- Bluetooth:
+				- Only allow apps to access your bluetooth if it is truly necessary for the app to work.
+				- Apps do not need bluetooth access if it's just playing music through your AirPods or speaker, that is handled by iOS.
+			- Local Network:
+				- Only allow apps to access your local network if it is truly necessary for the app to work.
+				- Allowing this lets apps see other devices on your network.
+			- Analytics & Improvements
+				- Disable 'Share iPhone & Watch Analytics'
+				- Disable 'Improve Siri & Dictation'
+				- Disable 'Share iCloud Analytics'
+			- Apple Advertising
+				- Disable 'Personalized Ads'
+					- This disables personalized ads in Apple's apps such as News.
+	- Mail
+		- If you use the stock mail app, disable 'Load Remote Images'
+			- This will protect your privacy by preventing email trackers from loading automatically. 
+				- Email trackers send back your IP Address and lets them know exactly when you opened the email.
+			- If you still need to see the images in an email, the app gives you an option at the top of the email.
+	- Phone
+		- Enable Wi-Fi calling so you can keep regular phone calls and sms messages while only being connected to Wi-Fi. See Ceullar Tracking section.
+	- Messages
+		- Disable 'Send as SMS'
+			- iMessages are end-to-end encrypted and relying on SMS as a backup is unsafe as it is very unsecure and not private.
+			- You can always manually send it as an sms by holding down on the message.
+	- Safari
+		- Search Engine: Use DuckDuckGo
+		- Disable 'Safari Suggestions
+		- Disable 'Preload Top Hit' so websites aren't automatically loaded without your knowledge.
+		- Content Blockers:
+			- Download [AdGuard](https://apps.apple.com/app/apple-store/id1047223162)
+				- Make sure to enable the filters after configuring the app.
+		- Translate:
+			- If you use this app normally, it requires your data be sent to Apple. I only recommend you use it if you enable the 'On-device mode'
+	- Music:
+		- If you don't use Apple Music, disable 'Show Apple Music'
+- **Apps**
+	- Todo
+- **DNS**
+	- Todo
+
+
+Feel free to create an issue or pull request if you want to add something or you think that something should be modified. I highly value feedback and I will try to respond in less than 24 hours. If you do create a pull request, please add any sources you used in the acknowledgement section if any are used.
+
+Acknowledgements: 
+- https://github.com/drduh/macOS-Security-and-Privacy-Guide
+- https://github.com/chrizel/iOS-Security-and-Privacy-Guide
+- https://manuals.info.apple.com/MANUALS/1000/MA1902/en_US/apple-platform-security-guide.pdf
+- https://support.apple.com/en-us/HT202303
+- https://gist.github.com/iosecure/357e724811fe04167332ef54e736670d
+- https://media.defense.gov/2020/Aug/04/2002469874/-1/-1/0/CSI_LIMITING_LOCATION_DATA_EXPOSURE_FINAL.PDF
+- https://developer.apple.com/videos/play/wwdc2020/10063/
+- https://arxiv.org/pdf/1904.10600.pdf
+- https://www.forbes.com/sites/gordonkelly/2021/04/24/apple-iphone-pro-airdrop-security-flaw-hack-ipad-macbook-pro-problem/
+- https://www.businessinsider.com/iphone-security-failed-passcode-attempts-2018-6
+- https://support.apple.com/en-us/HT207056
+- https://www.asus.com/support/FAQ/1044278
+- https://www.macworld.com/article/334305/how-to-block-tracking-pixels-in-apple-mail.html
+- https://apps.apple.com/app/apple-store/id1047223162
